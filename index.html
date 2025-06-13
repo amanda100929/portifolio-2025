@@ -1,62 +1,36 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gastronomia - Festejando Conexão</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #recipeForm {
-            margin-bottom: 20px;
-        }
-        #recipeList {
-            list-style-type: none;
-            padding: 0;
-        }
-        .recipe-item {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas da Cidade e Zona Rural</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Receitas da Cidade e Zona Rural</h1>
+  </header>
 
-<h1>Compartilhe Sua Receita</h1>
+  <nav>
+    <button class="tab-button active" data-tab="cidade">Receitas da Cidade</button>
+    <button class="tab-button" data-tab="zona-rural">Receitas da Zona Rural</button>
+  </nav>
 
-<div id="recipeForm">
-    <input type="text" id="recipeName" placeholder="Nome da Receita" required>
-    <textarea id="recipeDescription" placeholder="Descrição da Receita" required></textarea>
-    <button onclick="addRecipe()">Adicionar Receita</button>
-</div>
+  <main>
+    <section id="cidade" class="tab-content active">
+      <ul id="cidade-list">
+        <!-- Receitas da cidade serão inseridas aqui -->
+      </ul>
+    </section>
 
-<h2>Receitas Favoritas</h2>
-<ul id="recipeList"></ul>
+    <section id="zona-rural" class="tab-content">
+      <ul id="zona-rural-list">
+        <!-- Receitas da zona rural serão inseridas aqui -->
+      </ul>
+    </section>
+  </main>
 
-<script>
-    function addRecipe() {
-        const name = document.getElementById('recipeName').value;
-        const description = document.getElementById('recipeDescription').value;
-
-        if (name && description) {
-            const recipeList = document.getElementById('recipeList');
-            const newRecipeItem = document.createElement('li');
-            newRecipeItem.className = 'recipe-item';
-            newRecipeItem.innerHTML = `<strong>${name}</strong><p>${description}</p>`;
-            recipeList.appendChild(newRecipeItem);
-
-            // Limpar os campos após adicionar
-            document.getElementById('recipeName').value = '';
-            document.getElementById('recipeDescription').value = '';
-        } else {
-            alert("Por favor, preencha todos os campos.");
-        }
-    }
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
